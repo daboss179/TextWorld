@@ -10,6 +10,9 @@ public class Player {
         this.description = description;
         this.currentRoom = currentRoom;
     }
+    public String getName(){
+        return name;
+    }
     public void addItem(Item item){
         items.add(item);
     }

@@ -1,3 +1,4 @@
+import javax.xml.soap.Node;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -5,6 +6,7 @@ import java.util.List;
 public class Graph {
     //private List<Node> nodes;
     private HashMap<String, Node> nodes;
+    private ArrayList<Player> players;
     public Graph(){
         nodes = new HashMap<String, Node>();
     }
@@ -144,6 +146,26 @@ public class Graph {
             return null;
         }
 
+        public boolean hasPlayer(){
+            if(players.equals(null)){
+                return false;
+            }
+            return true;
+        }
+
+        public Player getPlayer(String name){
+
+            if (players!=null){
+                for(int i = 0; i < players.size();i++){
+                    if(players.get(i).getName().equals(name)){
+                        return players.get(i);
+                    }
+                }
+            }
+            return null;
+
+
+        }
 
         public void look(){
             String b = "";
@@ -204,6 +226,15 @@ public class Graph {
             ArrayList<String> b = new ArrayList<String>();
             for (String name : neighbors.keySet()) {
                 b.add(name);
+            }
+            return b;
+        }
+        public ArrayList<Node> getNeighborList(){
+            //Return a list of all neighbors
+            ArrayList<Node> b = new ArrayList<Node>();
+            for (String name : neighbors.keySet()) {
+               Node a = getNode(name);
+                b.add(a);
             }
             return b;
         }

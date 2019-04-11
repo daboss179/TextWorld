@@ -22,4 +22,5 @@ public abstract class Creature {
     public void setCurrentRoom(Graph.Node g){
         this.CurrentRoom = g;
     }
+
 }
